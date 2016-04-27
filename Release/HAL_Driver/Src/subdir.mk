@@ -165,7 +165,7 @@ HAL_Driver/Src/%.o: ../HAL_Driver/Src/%.c
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Compiler'
 	@echo %cd%
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F30 -DSTM32F3 -DSTM32F303VCTx -DSTM32 -DUSE_HAL_DRIVER -DSTM32F303xC -I"E:/workspace_ll/NT7538_Test/inc" -I"E:/workspace_ll/NT7538_Test/CMSIS/core" -I"E:/workspace_ll/NT7538_Test/CMSIS/device" -I"E:/workspace_ll/NT7538_Test/HAL_Driver/Inc/Legacy" -I"E:/workspace_ll/NT7538_Test/HAL_Driver/Inc" -I"E:/workspace_ll/NT7538_Test/LcdController/" -O3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -DSTM32F30 -DSTM32F3 -DSTM32F303VCTx -DSTM32 -DUSE_HAL_DRIVER -DSTM32F303xC -I"E:/workspace_ll/NT7538_Driver/inc" -I"E:/workspace_ll/NT7538_Driver/CMSIS/core" -I"E:/workspace_ll/NT7538_Driver/CMSIS/device" -I"E:/workspace_ll/NT7538_Driver/HAL_Driver/Inc/Legacy" -I"E:/workspace_ll/NT7538_Driver/HAL_Driver/Inc" -I"E:/workspace_ll/NT7538_Driver/LcdController/" -O3 -Wall -fmessage-length=0 -ffunction-sections -c -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 

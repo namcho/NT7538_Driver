@@ -29,13 +29,13 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: NT7538_Test.elf
+all: NT7538_Driver.elf
 
 # Tool invocations
-NT7538_Test.elf: $(OBJS) $(USER_OBJS)
+NT7538_Driver.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU GCC Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -T"E:\workspace_ll\NT7538_Test\LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "NT7538_Test.elf" @"objects.list" $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -T"E:\workspace_ll\NT7538_Driver\LinkerScript.ld" -Wl,-Map=output.map -Wl,--gc-sections -lm -o "NT7538_Driver.elf" @"objects.list" $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
@@ -47,8 +47,8 @@ clean:
 
 post-build:
 	-@echo 'Generating binary and Printing size information:'
-	arm-none-eabi-objcopy -O binary "NT7538_Test.elf" "NT7538_Test.bin"
-	arm-none-eabi-size -B "NT7538_Test.elf"
+	arm-none-eabi-objcopy -O binary "NT7538_Driver.elf" "NT7538_Driver.bin"
+	arm-none-eabi-size -B "NT7538_Driver.elf"
 	-@echo ' '
 
 .PHONY: all clean dependents

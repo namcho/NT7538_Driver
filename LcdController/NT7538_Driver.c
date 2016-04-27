@@ -46,13 +46,10 @@ static uint8_t getDataBuffer(){	return dataBuffer;	}
 #define OSCILLATION_FREQUENCY_32	(1)		//Kontrol
 #define PARTIAL_DISPLAY_MODE_ENTER		(0)	//Kontrol
 #define PARTIAL_DISPLAY_MODE_RELEASE	(1) //Kontrol
-#define POWER_CONTROL_MODE1				(0)
-#define POWER_CONTROL_MODE2				(1)
-#define POWER_CONTROL_MODE3				(2)
-#define POWER_CONTROL_MODE4				(3)
-#define POWER_CONTROL_MODE5				(4)
-#define POWER_CONTROL_MODE6				(5)
-#define POWER_CONTROL_MODE7				(6)
+#define POWER_CONTROL_MODE1				(0)	//External supply going to used.
+#define POWER_CONTROL_MODE2				(1)	//Follower on
+#define POWER_CONTROL_MODE3				(3)	//Regulator, Follower on
+#define POWER_CONTROL_MODE4				(7)	//Booster, Follower, regulator on
 
 
 
@@ -104,7 +101,7 @@ void LCDInit(LCD_HW_Interface_t *lcdHardware){
 	lcdHardware->pfWaitingForOperation(1000);	//tR time
 
 	//Chip select
-	lcdHardware->pfPinChipSelect(0);
+	lcdHardware->pfPinChipSelect(1);
 	lcdHardware->pfWaitingForOperation(20);
 
 	//LCD Bias ayari YES icin 1/65 duty 1/9bias icin ayarlaniyor.

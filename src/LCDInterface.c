@@ -82,16 +82,16 @@ void WriteCommand(int16_t command){
 	//RW = 0 : yazma
 	PinA0(0);
 	PinRW(0);
-	//tAS6 suresine gerek yok
+	WaitingForOperation(20);
+	PinChipSelect(0);
 	PinEnable(1);
-	DATA_PORT->ODR &= 0xFF00;
-	WaitingForOperation(50);
-	DATA_PORT->ODR |= command;
-	//WaitingForOperation(90);
-	WaitingForOperation(50);
-	PinEnable(0);
-	WaitingForOperation(100);
+	DATA_PORT->ODR &= 0xFF00;			//Portu temizle
+	DATA_PORT->ODR |= (command & 0x00FF);
+	WaitingForOperation(120);
 
+	PinChipSelect(1);
+	PinEnable(0);
+	WaitingForOperation(120);
 }
 
 void WriteCommandM(int16_t *pCommand, uint16_t len){
@@ -99,14 +99,19 @@ void WriteCommandM(int16_t *pCommand, uint16_t len){
 }
 
 void WriteData(int16_t data){
+
 	PinA0(1);
+	PinRW(0);
+	WaitingForOperation(20);
+	PinChipSelect(0);
 	PinEnable(1);
 	DATA_PORT->ODR &= 0xFF00;
-	WaitingForOperation(50);
-	DATA_PORT->ODR |= data;
-	WaitingForOperation(50);
+	DATA_PORT->ODR |= (data & 0x00FF);
+	WaitingForOperation(120);
+
+	PinChipSelect(1);
 	PinEnable(0);
-	WaitingForOperation(100);
+	WaitingForOperation(120);
 }
 
 void WriteDataM(int16_t *pData, uint16_t len){

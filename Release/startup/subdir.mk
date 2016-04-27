@@ -15,7 +15,7 @@ startup/%.o: ../startup/%.s
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU GCC Assembler'
 	@echo %cd%
-	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -I"E:/workspace_ll/NT7538_Test/inc" -I"E:/workspace_ll/NT7538_Test/CMSIS/core" -I"E:/workspace_ll/NT7538_Test/CMSIS/device" -I"E:/workspace_ll/NT7538_Test/HAL_Driver/Inc/Legacy" -I"E:/workspace_ll/NT7538_Test/HAL_Driver/Inc" -I"E:/workspace_ll/NT7538_Test/LcdController/" -g -o "$@" "$<"
+	arm-none-eabi-as -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -I"E:/workspace_ll/NT7538_Driver/inc" -I"E:/workspace_ll/NT7538_Driver/CMSIS/core" -I"E:/workspace_ll/NT7538_Driver/CMSIS/device" -I"E:/workspace_ll/NT7538_Driver/HAL_Driver/Inc/Legacy" -I"E:/workspace_ll/NT7538_Driver/HAL_Driver/Inc" -I"E:/workspace_ll/NT7538_Driver/LcdController/" -g -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
